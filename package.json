@@ -1,0 +1,21 @@
+{
+  "name": "KEKDesktop",
+  "version": "0.3.0",
+  "description": "KEKBots Desktop Application",
+  "main": "main.js",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "custom-electron-titlebar": "^3.2.2-hotfix62",
+    "electron-differential-updater": "^4.3.2",
+    "electron-is-dev": "^1.2.0",
+    "electron-updater": "^4.3.5",
+    "jquery": "^3.5.1",
+    "particles.js": "^2.0.0",
+    "popper.js": "^1.14.7",
+    "prebuild-install": "^5.3.4",
+    "python-shell": "^2.0.1",
+    "zerorpc": "^0.9.8"
+  },
+  "author": "KEKBots",
+  "license": "CC0-1.0"
+}

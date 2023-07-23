@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./static/css/style.css" type="text/css">
+  </head>
+  <body class="bg-grad">
+    <div class="container-fluid" >
+      <div class="row" style="padding-top: 10px;">
+        <div id="leftPanel" class="fixedLeft">
+          <div class="container">
+            <p class="navbar-brand text-white weight-light">Instagram Bots</p>
+          </div>
+
+          <div class="container botLink" id="btn_1" onclick="browseBots(1)">
+            <btn class="nav-link text-white">Accept Followers</btn>
+          </div>
+          <div class="container botLink" id="btn_2" onclick="browseBots(2)">
+            <btn class="nav-link text-white">Appeal Bot</btn>
+          </div>
+          <div class="container botLink" id="btn_3" onclick="browseBots(3)">
+            <btn class="nav-link text-white">Post Deleter</btn>
+          </div>
+          <div class="container botLink" id="btn_4" onclick="browseBots(4)">
+            <btn class="nav-link text-white">Auto Poster</btn>
+          </div>
+          <div class="container botLink" id="btn_5" onclick="browseBots(5)">
+            <btn class="nav-link text-white">DM Deleter</btn>
+          </div>
+          <div class="container botLink" id="btn_6" onclick="browseBots(6)">
+            <btn class="nav-link text-white">Report Bot</btn>
+          </div>
+          <div class="container botLink" id="btn_7" onclick="browseBots(7)">
+            <btn class="nav-link text-white">Auto DM</btn>
+          </div>
+          <div class="container botLink" id="btn_8" onclick="browseBots(8)">
+            <btn class="nav-link text-white">Unfollower Bot</btn>
+          </div>
+          <div class="container botLink" id="btn_9" onclick="browseBots(9)">
+            <btn class="nav-link text-white">Post Spammer</btn>
+          </div>
+        </div>
+
+        <div class="col" style="height: 750px; overflow: hidden;">
+          <div class="text-center centerMid" id="tab_free" style="display: none;">
+            <h1 class="font-weight-light">FREE VERSION</h1>
+          </div>
+
+          <div class="text-center centerMid" id="tab_0" style="display: block;">
+            <h1 class="font-weight-light">KEK Bots</h1>
+            <p class="lead">The Best Variety of Bots</p>
+          </div>
+
+          <div class="text-center centerMid" id="tab_1" style="display: none;">
+            <h1 class="font-weight-light">Accept Followers</h1>
+            <div class="group">
+              <input type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Please Enter your Key:</label>
+              <span></span>
+            </div>
+            <div style="visibility: hidden;" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <div class="text-center centerMid" id="tab_2" style="display: none;">
+            <h1 class="font-weight-light">Appeal Bot</h1>
+            <div class="group">
+              <input type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Please Enter your Key:</label>
+              <span></span>
+            </div>
+            <div style="visibility: hidden;" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <div class="text-center centerMid" id="tab_3" style="display: none;">
+            <h1 class="font-weight-light">Post Deleter</h1>
+            <div class="group">
+              <input type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Please Enter your Key:</label>
+              <span></span>
+            </div>
+            <div style="visibility: hidden;" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <div class="text-center centerMid" id="tab_4" style="display: none;">
+            <h1 class="font-weight-light">Auto Poster</h1>
+            <div class="group">
+              <input type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Please Enter your Key:</label>
+              <span></span>
+              <p class="lead">Click <a onclick="selectFreeBot(41)" class="faq-q-link">here</a> to open the free version.</p>
+
+            </div>
+            <div style="visibility: hidden;" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <div class="text-center centerMid" id="tab_5" style="display: none;">
+            <h1 class="font-weight-light">DM Deleter</h1>
+            <div class="group">
+              <input type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Please Enter your Key:</label>
+              <span></span>
+            </div>
+            <div style="visibility: hidden;" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <div class="text-center centerMid" id="tab_6" style="display: none;">
+            <h1 class="font-weight-light">Report Bot</h1>
+            <div class="group">
+              <input type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Please Enter your Key:</label>
+              <span></span>
+            </div>
+            <div style="visibility: hidden;" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <div class="text-center centerMid" id="tab_7" style="display: none;">
+            <h1 class="font-weight-light">Auto DM</h1>
+            <div class="group">
+              <input type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Please Enter your Key:</label>
+              <span></span>
+              <p class="lead">Click <a onclick="selectFreeBot(71)" class="faq-q-link">here</a> to open the free version.</p>
+            </div>
+            <div style="visibility: hidden;" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <div class="text-center centerMid" id="tab_8" style="display: none;">
+            <h1 class="font-weight-light">Unfollower Bot</h1>
+            <div class="group">
+              <input type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Please Enter your Key:</label>
+              <span></span>
+            </div>
+            <div style="visibility: hidden;" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <div class="text-center centerMid" id="tab_9" style="display: none;">
+            <h1 class="font-weight-light">Post Spammer</h1>
+            <div class="group">
+              <input type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Please Enter your Key:</label>
+              <span></span>
+            </div>
+            <div style="visibility: hidden;" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+          <iframe id="frame_1" src="acceptfollowers.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+          <iframe id="frame_2" src="appealbot.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+          <iframe id="frame_3" src="postdeleter.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+          <iframe id="frame_4" src="autoposter.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+          <iframe id="frame_5" src="dmdeleter.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+          <iframe id="frame_6" src="reportbot_framemaster.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+          <iframe id="frame_7" src="autodm.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+          <iframe id="frame_8" src="unfollowerbot.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+          <iframe id="frame_9" src="postspammer.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+
+          <iframe id="frame_41" src="autoposterfree.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+          <iframe id="frame_71" src="autodmfree.html"  width="100%" height="100%" style="border:none; display: None;" allowtransparency="true"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="loader-wrapper" id="loader-wrapper">
+      <div class="loader"></div>
+    </div>
+
+    <div id="particles-js" class="particles-wrapper" style="position: absolute;width: 100%;top: 0; bottom: 0;z-index: -1;opacity: 0.7;"><canvas id="canvas"></canvas></div>
+
+    <script src="./renderer.js"></script>
+    <script src="http://www.openjs.com/scripts/events/keyboard_shortcuts/shortcut.js">
+
+    </script>
+    <!-- <script>let $ = require('jquery');</script> -->
+    <script>require('popper.js');</script>
+    <script>require('bootstrap');</script>
+    <script>require('./particlequad.js');</script>
+
+
+    <script>
+      shortcut.add("F5", function() {
+          window.location = ''
+      });
+      // particlesJS.load('particles-js', './static/json/particles.json', function() {
+        //console.log('callback - particles.js config loaded');
+      // });
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<head>
+  <link rel="stylesheet" href="./static/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="./static/css/style.css" type="text/css">
+</head>
+<body style="overflow: hidden;">
+  <nav class="navbar navbar-expand-sm " style="padding: 0;">
+    <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item">
+                <a id="chgBtn_1" onclick="changeTab(1, this)" class="nav-link" style="height: 30; padding-top: 0;padding-bottom: 0; margin-top: 3; margin-left: 3">New Tab</a>
+              </li>
+              <li class="nav-item">
+                <a id="chgBtn_2" onclick="changeTab(2, this)" class="nav-link" style="height: 30; padding-top: 0;padding-bottom: 0; margin-top: 3; margin-left: 3; color: #b3b3b3!important">New Tab</a>
+              </li>
+              <li class="nav-item">
+                <a id="chgBtn_3" onclick="changeTab(3, this)" class="nav-link" style="height: 30; padding-top: 0;padding-bottom: 0; margin-top: 3; margin-left: 3; color: #b3b3b3!important">New Tab</a>
+              </li>
+    </ul>
+  </nav>
+    <!--
+  <button id="chgBtn_1" type="button" name="button" onclick="changeTab(1, this)" class="btn btn-light" style="height: 30; padding-top: 0;padding-bottom: 0; margin-top: 3; margin-left: 3">1</button>
+  <button id="chgBtn_2" type="button" name="button" onclick="changeTab(2, this)" class="btn btn-dark" style="height: 30; padding-top: 0;padding-bottom: 0; margin-top: 3; margin-left: 3">2</button>
+  <button id="chgBtn_3" type="button" name="button" onclick="changeTab(3, this)" class="btn btn-dark" style="height: 30; padding-top: 0;padding-bottom: 0; margin-top: 3; margin-left: 3">3</button>
+-->  <iframe id="frame_1" src="reportbot.html?id=1"  width="100%" height="100%" style="border:none" allowtransparency="true"></iframe>
+  <iframe id="frame_2" src="reportbot.html?id=2"  width="100%" height="100%" style="border:none; display: none;" allowtransparency="true"></iframe>
+  <iframe id="frame_3" src="reportbot.html?id=3"  width="100%" height="100%" style="border:none; display: none;" allowtransparency="true"></iframe>
+  <script type="text/javascript">
+    tab_count = 3
+    document.addEventListener("iframe-focus", function(e) {
+      if (e.detail == 'enabled') init();
+      if (e.detail == 'disabled') destroy();
+    });
+
+    function init(){
+      let event = new CustomEvent("iframe-focus", {"detail": "enabled"});
+      document.getElementById("frame_1").contentWindow.document.dispatchEvent(event);
+    }
+
+    function destroy(){
+      let event = new CustomEvent("iframe-focus", {"detail": "disabled"});
+      document.getElementById("frame_1").contentWindow.document.dispatchEvent(event);
+    }
+
+    function sendToPython(id, func, parameters) {
+      return parent.sendToPython(id, func, parameters)
+    }
+
+    function changeTab(id, self){
+      //self.classList.replace("btn-dark", "btn-light")
+      self.style.color = ""
+      document.getElementById("frame_"+id).style.display = ''
+      let event = new CustomEvent("iframe-focus", {"detail": "enabled"});
+      document.getElementById("frame_"+id).contentWindow.document.dispatchEvent(event);
+      for (i = 1; i <= tab_count; i++ ){
+        if (i != id) {
+          document.getElementById("chgBtn_"+i).style.setProperty("color", "#b3b3b3", "important");
+          document.getElementById("frame_"+i).style.display = 'none'
+          let event = new CustomEvent("iframe-focus", {"detail": "disabled"});
+          document.getElementById("frame_"+i).contentWindow.document.dispatchEvent(event);
+        }
+      }
+    }
+
+  </script>
+
+</body>

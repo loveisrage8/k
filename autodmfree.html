@@ -1,0 +1,215 @@
+<head>
+  <link rel="stylesheet" href="./static/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="./static/css/style.css" type="text/css">
+</head>
+
+
+<div style="margin: 10px; margin-top: 30px;" class="row">
+  <table class="table table-borderless">
+    <tbody>
+      <tr>
+        <form onSubmit="startAutoDM(); return false;" action="index.html" method="post">
+            <!-- <input id="userForm0" style="width: auto;" type="text" placeholder="Username" required> -->
+            <div class="row">
+              <div class="col">
+                <div style="margin-top: 0; padding-right: 7;" class="group">
+                  <input style="width: auto;" id="userForm0" type="text" required="">
+                  <span style="width: auto;" class="bar"></span>
+                  <label>Username</label>
+                </div>
+              </div>
+
+              <div class="col">
+                <div style="margin-top: 0; padding-right: 7;" class="group">
+                  <input style="width: auto;" id="userForm1" type="password" required="">
+                  <span style="width: auto;" class="bar"></span>
+                  <label>Password</label>
+                </div>
+              </div>
+
+              <div class="col">
+                <div style="margin-top: 0; padding-right: 7;" class="group">
+                  <input style="width: auto;" id="userForm2" type="number" required="">
+                  <span style="width: auto;" class="bar"></span>
+                  <label>Delay (Seconds)</label>
+                </div>
+              </div>
+
+              <div class="col">
+                <div style="margin-top: 0; padding-right: 7;" class="group">
+                  <input style="width: auto;" id="userForm4" type="number" required="">
+                  <span style="width: auto;" class="bar"></span>
+                  <label>Max Followers</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="group" style=" padding-left: 15px; padding-right: 50px;">
+                <span style="font-size: 18; color: white; opacity: 0.7; padding: 10; padding-left:6;">Reply message:</span>
+                <textarea class="table-wrapper resize-purple"  id="userForm3" name="appealmsg" rows="2" cols="80" required=""></textarea>
+                <span style="width: auto;" class="bar"></span>
+              </div>
+            </div>
+            <button style="padding: 0px; margin-left: 50px; height: 30; margin-top: 80;" type="submit" class="btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30"><path d="M9.5 15.584V8.416a.5.5 0 01.77-.42l5.576 3.583a.5.5 0 010 .842l-5.576 3.584a.5.5 0 01-.77-.42z"></path><path fill-rule="evenodd" d="M12 2.5a9.5 9.5 0 100 19 9.5 9.5 0 000-19zM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12z"></path></svg>
+            </button>
+        </form>
+        <button style="padding: 0px; margin-left: 50px; height: 30; margin-top: 80;" onclick="stopAcceptFollowers()" type="submit" class="btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30"><path d="M12 7a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0112 7zm0 10a1 1 0 100-2 1 1 0 000 2z"></path><path fill-rule="evenodd" d="M7.328 1.47a.75.75 0 01.53-.22h8.284a.75.75 0 01.53.22l5.858 5.858c.141.14.22.33.22.53v8.284a.75.75 0 01-.22.53l-5.858 5.858a.75.75 0 01-.53.22H7.858a.75.75 0 01-.53-.22L1.47 16.672a.75.75 0 01-.22-.53V7.858a.75.75 0 01.22-.53L7.328 1.47zm.84 1.28L2.75 8.169v7.662l5.419 5.419h7.662l5.419-5.418V8.168L15.832 2.75H8.168z"></path></svg>
+        </button>
+        <button style="padding: 0px; margin-left: 50px; height: 30; margin-top: 80;" onclick="clearConsole()" type="submit" class="btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30"><path fill-rule="evenodd" d="M16 1.75V3h5.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H8V1.75C8 .784 8.784 0 9.75 0h4.5C15.216 0 16 .784 16 1.75zm-6.5 0a.25.25 0 01.25-.25h4.5a.25.25 0 01.25.25V3h-5V1.75z"></path><path d="M4.997 6.178a.75.75 0 10-1.493.144L4.916 20.92a1.75 1.75 0 001.742 1.58h10.684a1.75 1.75 0 001.742-1.581l1.413-14.597a.75.75 0 00-1.494-.144l-1.412 14.596a.25.25 0 01-.249.226H6.658a.25.25 0 01-.249-.226L4.997 6.178z"></path><path d="M9.206 7.501a.75.75 0 01.793.705l.5 8.5A.75.75 0 119 16.794l-.5-8.5a.75.75 0 01.705-.793zm6.293.793A.75.75 0 1014 8.206l-.5 8.5a.75.75 0 001.498.088l.5-8.5z"></path></svg>
+        </button>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>
+
+<div style="height: 500px; margin: 10px; margin-top: 15;" class="row console shadow">
+  <div id="consoleOut" style="max-height: 470px; overflow: auto; width: 1100px;" class="table-wrapper">
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="inputModal" tabindex="-1" role="dialog"  aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div style="background-color: lightskyblue; opacity: 0.8;" class="modal-content">
+      <div class="col">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <h5 style="padding: 10px; text-align: center;">Input from python</h5>
+            </tr>
+            <tr>
+              <h6 style="border: 1px solid black; padding: 10px;" id="inputText">olaola</h6>
+            </tr>
+            <tr>
+              <form onSubmit="sendInputPY(); return false;" class="" action="index.html" method="post">
+                <th>
+                  <div style="margin-top: 0;" class="group">
+                    <input style="width: 360px; padding: 6px;" id="inputPYForm" api="false" type="text" required="">
+                    <span style="width: 360px;" class="bar"></span>
+                    <label style="color: gray;">Input</label>
+                  </div>
+                </th>
+                <th>
+                  <button type="submit" class="btn btn-primary">Send</button>
+                </th>
+
+
+              </form>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+  const iframeID = 71;
+
+  document.addEventListener("iframe-focus", function(e) {
+    if (e.detail == 'enabled') init();
+    if (e.detail == 'disabled') destroy();
+  });
+
+  document.addEventListener("api-response", function(e) {
+    if (e.detail.name == 'consoleOut'){
+      writeToConsole(e.detail.res)
+    } else if(e.detail.name == 'inputFromPY'){
+      document.getElementById('inputPYForm').setAttribute('api', e.detail.api)
+      noColorText = ''
+      for (var i = 0; i < Object.keys(e.detail.res).length; i++) {
+        noColorText += e.detail.res[i]['text']
+      }
+      document.getElementById('inputText').innerText = noColorText
+      $('#inputModal').modal('show')
+    } else if(e.detail.name == 'getAutoDMConfig'){
+      data = JSON.parse(e.detail.res)
+      document.getElementById("userForm0").value = data['username']
+      document.getElementById("userForm1").value = data['password']
+      document.getElementById("userForm2").value = data['interval']
+      document.getElementById("userForm3").value = data['replymsg']
+      document.getElementById("userForm4").value = data['maxFollowers']
+    }
+
+  });
+
+  function writeToConsole(msg){
+    console.log(msg)
+    if(msg != 'undefined' && msg != null){
+      stream = document.getElementById("consoleOut")
+      lastScrollMax = stream.scrollHeight - stream.clientHeight
+      tr = document.createElement("tr")
+
+      for (var i = 0; i < Object.keys(msg).length; i++) {
+        span = document.createElement("span")
+        span.innerText = msg[i]['text']
+        switch (msg[i]['color']) {
+          case 'yellow':
+            msg[i]['color'] = '#c7c700'
+            break;
+          default:
+        }
+        span.style.color = msg[i]['color']
+        tr.appendChild(span)
+      }
+
+      stream.appendChild(tr)
+      if(stream.scrollTop == lastScrollMax) stream.scrollTop = stream.scrollHeight
+
+    }
+  }
+
+  function sendInputPY(){
+    $('#inputModal').modal('hide')
+    let input_py = document.getElementById('inputPYForm')
+    parent.sendToPython(iframeID, 'handleInput', ['AutoDMFree', input_py.value, input_py.getAttribute('api')])
+    input_py.value = ''
+  }
+
+  function clearConsole(){
+    stream = document.getElementById("consoleOut")
+    stream.innerText = ''
+  }
+
+  function startAutoDM(){
+    writeToConsole({"0":{"text":"Sending start request.","color":"blue"}})
+    userForm0 = document.getElementById("userForm0")
+    userForm1 = document.getElementById("userForm1")
+    userForm2 = document.getElementById("userForm2")
+    userForm3 = document.getElementById("userForm3")
+    userForm4 = document.getElementById("userForm4")
+    parent.sendToPython(iframeID, 'AutoDMRun', [userForm0.value, userForm1.value, userForm2.value, userForm3.value, userForm4.value, 'isFree'])
+  }
+
+  function stopAcceptFollowers(){
+    writeToConsole({"0":{"text":"Sending stop request.","color":"blue"}})
+    parent.sendToPython(iframeID, 'stopAutoDM')
+  }
+
+
+  function init(){
+    stream = document.getElementById("consoleOut")
+    stream.scrollTop = stream.scrollHeight
+    console.log('autodmfree iframe init')
+    parent.sendToPython(iframeID, 'getAutoDMConfig', ['isFree'])
+  }
+
+  function destroy(){
+    console.log('autodmfree iframe destroy')
+  }
+
+
+
+
+</script>
